@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Events Demo</title>
+    <style>
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            padding: 10px;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        .container {
+            padding: 20px;
+        }
+        .highlight {
+            color: #ff6347;
+            font-weight: bold;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        button, input[type="text"] {
+            padding: 10px;
+            margin: 5px 0;
+        }
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Interactive Events Demo</h1>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container">
+        <h2 id="home">Home Section</h2>
+        <p>Explore different types of events in JavaScript.</p>
+
+        <!-- Input Event Example -->
+        <h3>Input Event</h3>
+        <input type="text" id="inputField" placeholder="Type something...">
+        <p id="inputDisplay">You typed: <span id="displayText"></span></p>
+
+        <!-- Mouseover Event Example -->
+        <h3>Mouseover Event</h3>
+        <button id="hoverButton">Hover over me</button>
+        <p id="hoverText"></p>
+
+        <!-- Key Press Event Example -->
+        <h3>Key Press Event</h3>
+        <input type="text" id="keyPressField" placeholder="Press any key...">
+        <p id="keyDisplay">Last key pressed: <span id="lastKey"></span></p>
+    </div>
+
+    <footer>
+        &copy; 2024 Interactive Events Demo
+    </footer>
+
+    <script>
+        // Load Event: Triggered when the page fully loads
+        window.addEventListener("load", function() {
+            alert("Welcome! The page has fully loaded.");
+        });
+
+        // Input Event: Triggered when typing in the input field
+        const inputField = document.getElementById("inputField");
+        const displayText = document.getElementById("displayText");
+        inputField.addEventListener("input", function() {
+            displayText.innerText = inputField.value;
+        });
+
+        // Mouseover Event: Triggered when hovering over the button
+        const hoverButton = document.getElementById("hoverButton");
+        const hoverText = document.getElementById("hoverText");
+        hoverButton.addEventListener("mouseover", function() {
+            hoverText.innerText = "You hovered over the button!";
+        });
+        hoverButton.addEventListener("mouseout", function() {
+            hoverText.innerText = ""; // Clears text when not hovering
+        });
+
+        // Key Press Event: Triggered when pressing a key in the input field
+        const keyPressField = document.getElementById("keyPressField");
+        const lastKey = document.getElementById("lastKey");
+        keyPressField.addEventListener("keydown", function(event) {
+            lastKey.innerText = event.key; // Displays the last key pressed
+        });
+    </script>
+
+</body>
+</html>
